@@ -60,3 +60,4 @@ jobs:
             -e MYSQL_HOST=mysql \
             --network=rede --name simulado \
             nadapebe/simulado-ci:${{ github.sha }}
+
