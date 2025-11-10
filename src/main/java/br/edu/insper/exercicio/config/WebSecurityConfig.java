@@ -1,6 +1,5 @@
 package br.edu.insper.exercicio.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -25,6 +24,10 @@ public class WebSecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/stocks").permitAll()
+                        .requestMatchers("/stocks/**").permitAll()
+                        .requestMatchers("/order").permitAll()
+                        .requestMatchers("/order/**").permitAll()
                         .anyRequest()
                         .authenticated()
                 )
